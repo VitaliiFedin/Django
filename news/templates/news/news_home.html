@@ -7,7 +7,17 @@ News
 {% block content %}
 <div class="features">
     <h1>News</h1>
-    <p>This site was made by Vitalii Fedin</p>
-    <button class="btn btn-warning">On page about us </button>
+    {% if news %}
+        {%for el in news %}
+            <div class="alert alert-warning">
+            <h3>{{el.title}} </h3>
+            <p>{{el.announcment}}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>You don't have news</p>
+    {% endif %}
+
+
 </div>
 {% endblock %}
